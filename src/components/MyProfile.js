@@ -1,10 +1,11 @@
 import React from 'react';
+import './MyProfile.css'
 
 class MyProfile extends React.Component {
     state = {
-        name: '',
-        gendar: 'male',
-        description: '',
+        name: 'Your name',
+        gendar: 'Male',
+        description: 'Description about yourself',
         check: false
     }
 
@@ -39,30 +40,28 @@ class MyProfile extends React.Component {
 
     render() {
         return <form className = 'form'>
-            <div>
-                <label htmlFor = 'name'>Name:
-                    <input type = 'text' id = 'name' value = {this.state.name} onChange = {this.handleNameChange}/>
-                </label>
+          <h1>My Profile</h1>
+            <div className = 'component'>
+                <label htmlFor = 'name'>Name</label>
+                <input type = 'text' id = 'name' value = {this.state.name} onChange = {this.handleNameChange}/>
             </div>
-            <div>
-                <label > Gendar
-                    <select value = {this.state.gendar} onChange={this.handleGendarChange}>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                </label>
+            <div className = 'component'>
+                <label > Gendar</label>
+                <select value = {this.state.gendar} onChange={this.handleGendarChange}>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
             </div>
-            <div>
-                <label htmlFor = 'description'>Description:
-                    <input type = 'text' id = 'description' value = {this.state.description} onChange = {this.handleDescriptionChange}/>
-                </label>
+            <div className = 'component'>
+                <label htmlFor = 'description'>Description</label>
+                <textarea id = 'description' value = {this.state.description} onChange = {this.handleDescriptionChange}></textarea>
             </div>
-            <div>
-              <input type = 'checkbox' onChange = {this.handleCheckChange}></input>
-              <label>I have read the terms of conduct</label>
+            <div className = 'component checkBoxDiv'>
+              <input className='checkBox' type = 'checkbox' onChange = {this.handleCheckChange}></input>
+              <label className = "checkText">I have read the terms of conduct</label>
             </div>
-            <div>
-                <button type = 'submit' onClick = {this.handleSubmit} disabled={!this.state.name||!this.state.description||!this.state.gendar}>
+            <div calss = 'component'>
+                <button className = 'button' type = 'submit' onClick = {this.handleSubmit} disabled={!this.state.name||!this.state.description||!this.state.gendar}>
                     submit
                 </button>
             </div>
